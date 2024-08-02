@@ -110,12 +110,23 @@
     <section class="lab-section">
       <h2>Attribute, Class and Style Binding with <code>v-bind</code></h2>
       <p>Highlighting Specific Authors:</p>
+   
+      <p :style="{ color: orwellTextColor}">{{ orwell.name }}</p>
+      <p> Birth Year: {{orwell.birthYear }}</p>
+      <p>Works:
+        <ul>
+          <li v-for="work in orwell.famousWorks" :key="work.title">{{ work.title }}</li>
+        </ul>
+      </p>
+
     </section>
   </div>
 </template>
 
 <script setup>
 import { ref, computed } from 'vue'
+
+const orwellTextColor = ref("red")
 
 // Activity 1: Import JSON files (authors.json and bookstores.json)
 // TODO: CODE TO IMPORT JSON FILES HERE
